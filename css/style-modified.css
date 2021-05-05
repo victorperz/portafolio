@@ -1,0 +1,29 @@
+.text-light, .page-header-dark .btn-link {
+    color: #03989eba !important;
+  }
+
+  .bg-light {
+    background-color: #03989e !important;
+  }
+  .bg-dark {
+    background-color: #373741 !important;
+  }
+  .text-dark, .page-header-light .btn-link {
+    color: #37374187 !important;
+  }
+  .card {
+    background-color: #37374171;
+  }
+  .footer.footer-dark {
+    color: #eff3f9;
+  }
+  body {
+    color: #eff3f9;
+  }
+ h2, h3, h4, h5, h6,
+ .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #eff3f9;
+}
