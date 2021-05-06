@@ -226,3 +226,6 @@
   border-radius: 50%;
   color: rgb(0, 0, 0);
 }
+.pt-10, .py-10 {
+  padding-top: 7rem !important;
+}
