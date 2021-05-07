@@ -159,3 +159,22 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
   modal.style.display = "none";
 }
+const horaContainer = document.querySelector('.hora')
+const horarioDiv = document.querySelector('.horario')
+
+const actualizarHora = setInterval(function(){
+
+    const date = new Date()
+    //REFACTORIZADO
+    currentHours = date.getHours()
+    currentHours = ("0" + currentHours).slice(-2)
+    currentMinutes = date.getMinutes()
+    currentMinutes = ("0" + currentMinutes).slice(-2)
+    currentSeconds = date.getSeconds()
+    currentSeconds = ("0" + currentSeconds).slice(-2)
+    
+    horaContainer.innerHTML = `${currentHours} : ${currentMinutes} : ${currentSeconds}`
+    
+    horarioDiv.innerHTML = date.getHours() >= 12 ? 'PM' : 'AM'
+
+},1000)
