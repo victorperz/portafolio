@@ -2,12 +2,14 @@
     (function($) {
         "use strict";
 
-        barChart();
-    
+    barChart();
+    //Run when there is a resize
     $(window).resize(function(){
         barChart();
     });
-    
+    /*Adjusting the size of the skill bar,
+     I divide the percentage by 100 and multiply
+     that by the width.*/
     function barChart(){
         $('.bar-chart').find('.progress').each(function(){
             var itemProgress = $(this),
@@ -99,17 +101,20 @@
         });
         
     })(jQuery);
+    //Execute active class, on clicking
     var header = document.getElementById("myDIV");
-var btns = header.getElementsByClassName("nav-link");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  current[0].className = current[0].className.replace(" active", "");
-  this.className += " active";
-  });
-}
+    var btns = header.getElementsByClassName("nav-link");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+
 var modal = document.getElementById('popUp');
 
+//I store the entire img tag inside a variable
 var img = document.getElementById('myImg');
 var img2 = document.getElementById('myImg2');
 var img3 = document.getElementById('myImg3');
@@ -123,6 +128,8 @@ var modalImg4 = document.getElementById("img04");
 var modalImg5 = document.getElementById("img05");
 var modalImg6 = document.getElementById("img06");
 var captionText = document.getElementById("caption");
+
+//clicking on the image runs the popUp
 img.onclick = function(){
     modal.style.display = "block";
     modalImg.src = this.src;
@@ -153,28 +160,37 @@ img6.onclick = function(){
     modalImg.src = this.src;
     captionText.innerHTML = this.alt;
 }
-
+//store the label containing the close class
 var span = document.getElementsByClassName("close")[0];
 
+// Close popUp when clicking on the x, "when selecting the span tag with the close class"
 span.onclick = function() { 
   modal.style.display = "none";
 }
+
+//store all tag where class is hora
 const horaContainer = document.querySelector('.hora')
+//store all tag where class is horario
 const horarioDiv = document.querySelector('.horario')
 
+//Update the time
 const actualizarHora = setInterval(function(){
 
     const date = new Date()
-    //REFACTORIZADO
-    currentHours = date.getHours()
-    currentHours = ("0" + currentHours).slice(-2)
-    currentMinutes = date.getMinutes()
-    currentMinutes = ("0" + currentMinutes).slice(-2)
-    currentSeconds = date.getSeconds()
-    currentSeconds = ("0" + currentSeconds).slice(-2)
-    
-    horaContainer.innerHTML = `${currentHours} : ${currentMinutes} : ${currentSeconds}`
-    
+    //Refactored
+        currentHours = date.getHours()
+        //Make it show two digits
+        currentHours = ("0" + currentHours).slice(-2)
+        currentMinutes = date.getMinutes()
+        currentMinutes = ("0" + currentMinutes).slice(-2)
+        currentSeconds = date.getSeconds()
+        currentSeconds = ("0" + currentSeconds).slice(-2)
+        
+        //Concatenate the hour, minute, and second values ​​and display it in the container
+        horaContainer.innerHTML = `${currentHours} : ${currentMinutes} : ${currentSeconds}`
+        
+    //if short, to know if it is time in the morning (am) or afternoon (pm)
     horarioDiv.innerHTML = date.getHours() >= 12 ? 'PM' : 'AM'
 
+//Update every second
 },1000)
